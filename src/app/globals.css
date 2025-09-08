@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+        --primary: 222.2 47.4% 11.2%;
+        --primary-foreground: 210 40% 98%;
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 222.2 84% 4.9%;
+        --radius: 0.5rem;
+        --chart-1: 12 76% 61%;
+        --chart-2: 173 58% 39%;
+        --chart-3: 197 37% 24%;
+        --chart-4: 43 74% 66%;
+        --chart-5: 27 87% 67%;
+    }
+
+    .dark {
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 40% 98%;
+        --card: 222.2 84% 4.9%;
+        --card-foreground: 210 40% 98%;
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 40% 98%;
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 11.2%;
+        --secondary: 217.2 32.6% 17.5%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+        --accent: 217.2 32.6% 17.5%;
+        --accent-foreground: 210 40% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+        --ring: 212.7 26.8% 83.9%;
+        --chart-1: 220 70% 50%;
+        --chart-2: 160 60% 45%;
+        --chart-3: 30 80% 55%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    span {
+        color: #181818;
+    }
+}
+@layer utilities {
+    .section {
+        @apply xl:px-[80px] st:px-[120px] lg:px-6 xl:py-20 py-12 px-5 md:px-10 md:py-6;
+    }
+    .policies {
+        @apply xl:py-20 xl:px-[324px] md:py-10 md:px-20 p-6 flex flex-col gap-10 md:gap-[64px];
+    }
+    .desc {
+        @apply text-[#181818]/62 font-normal text-sm md:text-base;
+    }
+    .outline-linear {
+        position: relative;
+    }
+    .outline-linear::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 50px;
+        padding: 1px;
+        background: linear-gradient(90.51deg, #6eaf4c 0.42%, #b7d349 99.54%);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+    }
+}
+.navbar > div:first-child {
+    width: 100%;
+}
+.dashed {
+    height: 1px;
+    background-image: linear-gradient(
+            90deg,
+            transparent,
+            transparent 50%,
+            #f2f6ef 50%,
+            #f2f6ef 100%
+        ),
+        linear-gradient(90.51deg, #6eaf4c 0.42%, #b7d349 99.54%);
+    background-size: 20px 3px, 100% 3px;
+    border: none;
+}
+.wrapper {
+    position: relative;
+    padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+}
+
+.player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.hexagon {
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 20px;
+    background: linear-gradient(90.51deg, #6eaf4c 0.42%, #b7d349 99.54%);
+    color: white; /* Text color */
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    clip-path: polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
+}
+.hexagon-btn {
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    background: linear-gradient(90.51deg, #6eaf4c 0.42%, #b7d349 99.54%);
+    color: white; /* Text color */
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    clip-path: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0);
+}
+.branding-assets-btn:hover path {
+    fill: #fff;
+}
+.text-outline{
+    color: white;
+    background: -webkit-linear-gradient(98deg, #6FAF4B 0%, #ADCE46 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.add-btn:hover{
+    @apply bg-linear
+}
