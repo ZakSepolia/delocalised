@@ -536,10 +536,10 @@ export const BNZ_FEATURES = [
             </TableBody>
           </Table>
         </div>
-        <p className="font-semibold text-base mb-4 text-white">
+        {/* <p className="font-semibold text-base mb-4 text-white">
           Ben should be stored in your private wallet. Check out security for
           more information.
-        </p>
+        </p> */}
       </div>
     ),
   },
