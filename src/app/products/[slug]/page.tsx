@@ -13,7 +13,6 @@ export default async function ProductDetailPage({
 
   const product = await getProduct(params.slug);
 
-  console.log(product);
   
 
   // If product not found, return 404

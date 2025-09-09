@@ -81,7 +81,6 @@ export default function ProductPage({ product }: ProductPageProps) {
   }
   const transformed = transformProduct(product);
 
-
   const { addToCart }: any = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -130,11 +129,18 @@ export default function ProductPage({ product }: ProductPageProps) {
     });
   }
 
+  const sizeOrder = ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"];
+
+  function sortSizes(values: string[]) {
+    return [...values].sort(
+      (a, b) => sizeOrder.indexOf(a) - sizeOrder.indexOf(b)
+    );
+  }
+  console.log(product);
+
   // const recommendedProducts = allProducts.filter(
   //   (product: any) => product.id !== transformed.id
   // );
-
-  
 
   return (
     <div className="min-h-screen">
@@ -194,38 +200,16 @@ export default function ProductPage({ product }: ProductPageProps) {
               <span className="text-2xl font-medium text-[#2c2c2c]">
                 €{transformed.price}
               </span>
-              {/* {product.compareAtPrice && (
-                <span className="text-lg text-gray-500 line-through ml-2">
-                  ${product.compareAtPrice}
-                </span>
-              )} */}
             </div>
 
-            {/* Description */}
-            {/* <div className="mb-6">
-              <p className="text-[#5c5c5c] mt-2">
-                This bracelet combines the{" "}
-                {transformed.metafields.crystals_included.length === 3
-                  ? `${transformed.metafields.crystals_included[0]}, ${transformed.metafields.crystals_included[1]}, and ${transformed.metafields.crystals_included[2]}`
-                  : transformed.metafields.crystals_included.join(", ")}{" "}
-                to create a powerful tool for{" "}
-                {transformed.metafields.primary_intentions.toLowerCase()} and{" "}
-                {transformed.metafields.secondary_intentions[0]?.toLowerCase()}.
-              </p>
-              <p className="text-[#5c5c5c] mt-2">
-                Handcrafted with intention by our skilled artisans, each
-                bracelet is made to order and infused with positive energy. The
-                natural variations in the crystals ensure that your bracelet is
-                one-of-a-kind, just like you.
-              </p>
-            </div> */}
             <div className="mb-6">
-              <h3 className="text-sm font-medium text-[#5c5c5c] mb-2">Size:</h3>
+              {/* <h3 className="text-sm font-medium text-[#5c5c5c] mb-2">Size:</h3> */}
               {product.options.map(({ name, values }: any) => (
                 <ProductOptions
                   key={`key-${name}`}
                   name={name}
-                  values={values}
+                  // values={values}
+                  values={name === "Size" ? sortSizes(values) : values} // ✅ sorted only for Size
                   selectedOptions={selectedOptions}
                   setOptions={setOptions}
                 />

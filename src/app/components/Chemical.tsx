@@ -7,7 +7,7 @@ import Image from 'next/image';
 const imgs = [Hexagon, Hexagon1, Hexagon2, Benzene];
 const Chemical = () => {
     return (
-        <section className='grid md:grid-cols-4 grid-cols-2 py-12 px-2 md:gap-6 gap-[12px]'>
+        <section className='grid md:grid-cols-4 grid-cols-2 py-12 px-2 md:gap-6 gap-[10px]'>
             {imgs.map((img) => (
                 <div
                     key={img.src}
@@ -15,7 +15,7 @@ const Chemical = () => {
                     <Image
                         src={img}
                         alt='Chemical element'
-                        className='w-[97px] h-[115px]  md:hidden block mx-auto'
+                        className='w-[97px] h-[110px]  md:hidden block mx-auto'
                     />
                     <Image src={img} alt='Chemical element' className='hidden md:block mx-auto' />
                 </div>
