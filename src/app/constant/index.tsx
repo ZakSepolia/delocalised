@@ -962,22 +962,6 @@ export const ATOM_QUESTIONS = [
       </p>
     ),
   },
-  {
-    title: `Kekule's dream
-`,
-    children: (
-      <p className="desc">
-        A taster of a snake is provided for as a product and you can do whatever
-        you want with the clothing. The image was the original drawing done by
-        one of the designers of Benzene. Kekulé later in life told his students
-        he had a dream about Benzene's structure where he saw a snake eating its
-        own tail. This is called an Ouroboros, an Ouroboros is an old
-        mythological symbol with many interpretations. In alchemical traditions,
-        the ouroboros signifies the ongoing cycle of creation and destruction
-        inherent in the pursuit of knowledge and wisdom.
-      </p>
-    ),
-  },
   // {
   //   title: `What about other drugs?`,
   //   children: (
