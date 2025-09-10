@@ -198,7 +198,7 @@ export default function ProductPage({ product }: ProductPageProps) {
             {/* Price */}
             <div className="mb-6">
               <span className="text-2xl font-medium text-[#2c2c2c]">
-                €{transformed.price}
+                ${transformed.price}
               </span>
             </div>
 

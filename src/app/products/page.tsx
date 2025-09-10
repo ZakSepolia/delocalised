@@ -201,7 +201,7 @@ export default function allProductsPage() {
 
                 <div className="mt-4 flex items-center justify-between gap-4">
                   <p className="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">
-                    €{product.price}{" "}
+                    ${product.price}{" "}
                   </p>
                   <a href={`/products/${product.handle}`}>
                     <button

@@ -127,7 +127,7 @@ export default function MiniCart({ cart }: any) {
                                                 </Link>
                                               </h3>
                                               <p className="ml-4">
-                                                €{product.variantPrice}
+                                                ${product.variantPrice}
                                               </p>
                                             </div>
                                             <div className="flex justify-between  ">
