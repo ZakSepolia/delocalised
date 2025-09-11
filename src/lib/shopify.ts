@@ -2,7 +2,7 @@ const domain = process.env.SHOPIFY_STORE_DOMAIN;
 const storefrontAccessToken = process.env.SHOPIFY_STOREFRONT_ACCESSTOKEN;
 
 export async function ShopifyData(query: string) {
-  const URL = `https:/delocalised.myshopify.com/api/2025-04/graphql.json`;
+  const URL = `https://jspstore1.myshopify.com//api/2025-04/graphql.json`;
 
   const options: any = {
     endpoint: URL,
