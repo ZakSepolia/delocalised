@@ -43,8 +43,6 @@ export async function getProductsInHomePage() {
 
   const response = await ShopifyData(query);
 
-  
-
   // const allProducts = response.data.products.edges
   //   ? response.data.products.edges
   //   : [];
@@ -83,6 +81,7 @@ export async function getProduct(handle: string) {
   const query = `
    {
   productByHandle(handle: "${handle}") {
+  totalInventory
     description
     handle
     id
@@ -130,6 +129,9 @@ export async function getProduct(handle: string) {
           }
           
           title
+            quantityAvailable
+          availableForSale
+          currentlyNotInStock
            
         }
       }
@@ -186,72 +188,3 @@ export async function getProduct(handle: string) {
 
 //   return recommended;
 // }
-
-export async function getCustomProduct() {
-  const query = `
-   {
-  productByHandle(handle: "custom") {
-    description
-    handle
-    id
-    title
-     images(first: 5) {
-          edges {
-            node {
-              originalSrc
-              altText
-            }
-          }
-        }
-      metafields(
-          identifiers: [{namespace: "custom", key: "shortdescription"}]
-        ) {
-          id
-          key
-          namespace
-          value
-        }
-      priceRange {
-                minVariantPrice {
-                  amount
-                }
-              }
-    options {
-          name
-          values
-          id
-        }
-    variants(first: 10) {
-      edges {
-        node {
-        selectedOptions {
-                name
-                value
-              }
-          id
-          price {
-           amount
-          }
-          image {
-            altText
-            src
-          }
-          
-          title
-           
-        }
-      }
-    }
-  }
-}
-  
-  `;
-
-  const response = await ShopifyData(query);
-
-  const product = response.data?.productByHandle
-    ? response.data?.productByHandle
-    : [];
-
-  return product;
-}

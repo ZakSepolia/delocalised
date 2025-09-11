@@ -74,6 +74,8 @@ export default function ProductPage({ product }: ProductPageProps) {
       title: product.title,
       handle: product.handle,
       description: product.description,
+      totalInventory: product.totalInventory,
+
       image: product.images.edges[0]?.node.originalSrc ?? null,
       // metafields: metafieldsObj,
       price: product.priceRange.minVariantPrice.amount,
@@ -100,10 +102,11 @@ export default function ProductPage({ product }: ProductPageProps) {
       options: allOptions,
       variantTitle: variant.node.title,
       variantPrice: variant.node.price.amount,
+      availibility: variant.node.availableForSale,
       variantQuantity: quantity,
     };
   });
-
+  console.log(allVariantOptions, "allVariantOptions");
   const defaultValues: any = {};
   product.options.map((item: any) => {
     defaultValues[item.name] = item.values[0];
@@ -136,11 +139,6 @@ export default function ProductPage({ product }: ProductPageProps) {
       (a, b) => sizeOrder.indexOf(a) - sizeOrder.indexOf(b)
     );
   }
-  console.log(product);
-
-  // const recommendedProducts = allProducts.filter(
-  //   (product: any) => product.id !== transformed.id
-  // );
 
   return (
     <div className="min-h-screen">
@@ -201,14 +199,19 @@ export default function ProductPage({ product }: ProductPageProps) {
                 ${transformed.price}
               </span>
             </div>
+            {/* <div className="mb-6">
+              <span className="text-xxl font-medium text-[#2c2c2c]">
+                {transformed.totalInventory}
+              </span>
+            </div> */}
 
             <div className="mb-6">
               {/* <h3 className="text-sm font-medium text-[#5c5c5c] mb-2">Size:</h3> */}
               {product.options.map(({ name, values }: any) => (
                 <ProductOptions
+                  product={allVariantOptions}
                   key={`key-${name}`}
                   name={name}
-                  // values={values}
                   values={name === "Size" ? sortSizes(values) : values} // ✅ sorted only for Size
                   selectedOptions={selectedOptions}
                   setOptions={setOptions}
