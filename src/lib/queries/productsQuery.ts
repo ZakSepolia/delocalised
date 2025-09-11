@@ -3,7 +3,7 @@ import { ShopifyData } from "../shopify";
 export async function getProductsInHomePage() {
   const query = `
   {
-  products(first: 25) {
+  products(first: 25, , sortKey:PRODUCT_TYPE, reverse:true) {
     edges {
       node {
         totalInventory
