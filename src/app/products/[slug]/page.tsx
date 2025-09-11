@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import ProductPage from "../../../components/product-page-component";
 import { getProduct } from "../../../lib/queries/productsQuery";
 import { notFound } from "next/navigation";
