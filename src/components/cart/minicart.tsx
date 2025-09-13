@@ -188,7 +188,7 @@ export default function MiniCart({ cart }: any) {
                             <div className="border-t border-gray-700 py-6 px-4 sm:px-6 md:mr-4">
                               <div className="flex justify-between text-base font-medium text-white">
                                 <p>Subtotal</p>
-                                <p>${roundToPenny(cartTotal)}</p>
+                                <p>${cartTotal}</p>
                               </div>
                               <div className="mt-6">
                                 <a
